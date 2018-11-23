@@ -1,0 +1,62 @@
+@font-face {
+    font-family: titlefont;
+    src: url(../league-gothic-master/LeagueGothic-Regular.otf);
+}
+
+#particles-js {
+    position: absolute;
+    // z-index: 1;
+    height: 100%;
+    width: 100%;
+    background-color:#fff;
+}
+
+.container-fluid {
+    .home {
+          img.homelogo {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            display: inline-block;
+              z-index: 1;
+              max-width: 440px;
+              margin-top: 220px;
+          }
+          .fab {
+              font-size: 60px;
+              color: #000000;
+              margin-top: 20px;
+              margin-right: 5px;
+              margin-left: 5px;
+          }
+          .fab:hover {
+              color: #DCDCDC;
+          }
+          .home-link {
+              color: #000000;
+              font-size: 40px;
+              font-family: titlefont;
+          }
+          @media screen and (max-width: 1024px) { /* Specific to this particular image */
+            img.bg {
+              left: 50%;
+              margin-left: -512px;   /* 50% */
+            }
+            img.homelogo {
+                max-width: 265px;
+                margin-top: 170px;
+                margin-right: auto;
+            }
+            .home-link {
+                font-size: 32px;
+            }
+            .fab {
+                font-size: 45px;
+            }
+            // img.homepic {
+            //     max-width: 150px;
+            // }
+          }
+
+    }
+}
