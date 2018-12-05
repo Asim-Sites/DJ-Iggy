@@ -1,11 +1,15 @@
 @font-face {
   font-family: titlefont;
   src: url(../league-gothic-master/LeagueGothic-Regular.otf); }
+header {
+  font-family: titlefont; }
+
 #particles-js {
   position: absolute;
+  z-index: -1;
   height: 100%;
   width: 100%;
-  background-color: #fff; }
+  background-color: rgba(255, 255, 255, 0.466); }
 
 .container-fluid .home img.homelogo {
   display: block;

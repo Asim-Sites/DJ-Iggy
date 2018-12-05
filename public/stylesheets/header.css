@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+}
+.fa-bars {
+    color: #000000 !important;
+    padding-right: 30px
+}
+.icon-bar {
+    /* padding-top: 10px; */
+    margin-right: 10px;
+}
+#header {
+    width: 100%;
+    top: 0px;
+    text-align: center;
+    /* position: absolute; */
+}
+.navbar-brand {
+    padding-top: 20px !important;
+    font-size: 40px !important;
+}
+#header a {
+    padding-top: 20px !important;
+    z-index: 4;
+    font-size: 30px;
+    font-family: titlefont;
+    color: #000000;
+} 
+@media screen and (max-width: 500px) {
+    /* .navbar-header {
+        background-color: #fff;
+    } */
+    .navbar-collapse.navHeaderCollapse.collapse.in {
+        background-color: #fff;
+    }
+}
