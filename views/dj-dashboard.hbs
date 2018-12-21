@@ -1,1 +1,27 @@
-<p>adminnn dashboard</p>
+<h1>Admin Dashboard</h1>
+
+<section class="your-events">
+    <ul class="list">
+        {{#each events}}
+            <li class="list-item">{{this.date}}</li>
+            <ul>{{this.title}}</ul>
+            <ul>{{this.location}}</ul>
+            <form action="/auth/{{this._id}}?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-danger">Delete Post</button>
+            </form>
+        {{/each}}  
+    </ul>
+    <form action="/auth/event" method="post">
+    <legend>Add a new Event</legend>
+    <label for="date">Date</label>
+    <input type="date" name="date" placeholder="Date">
+    <label for="title">Title</label>
+    <input type="text" name="title" placeholder="Event Title">
+    <label for="location">Location</label>
+    <input type="text" name="location" placeholder="City, State">
+    <button type="submit">Submit</button>
+    </form>
+</section>
+{{!-- view events --}}
+{{!-- add events --}}
+{{!-- delete events --}}

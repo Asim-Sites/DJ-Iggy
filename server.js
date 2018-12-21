@@ -5,7 +5,6 @@ const app = express();
 const path = require('path') // research the path native node module
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser')
-const basicAuth = require('basic-auth');
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 const port = process.env.PORT || 3000
@@ -19,36 +18,18 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
-// require('./data/djiggy-db');
+require('./data/djiggy-db');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // app.use(expressValidator());
 
-// middleware
+// routers
 const indexRouter = require('./controllers/index');
 app.use(indexRouter);
-
-var auth = function (req, res, next) {
-  var user = basicAuth(req);
-  if (!user || !user.name || !user.pass) {
-    res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
-    res.sendStatus(401);
-    return;
-  }
-  if (user.name === 'djiggy' && user.pass === 'passwd123') {
-    next();
-  } else {
-    res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
-    res.sendStatus(401);
-    return;
-  }
-}
-
-app.get("/auth", auth, function (req, res) {
-  res.render("dj-dashboard")
-});
+const authRouter = require('./controllers/auth');
+app.use(authRouter);
 
 app.listen(port, () =>{
     console.log(`Server is listening on ${port}`);
