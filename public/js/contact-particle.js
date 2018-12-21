@@ -8,7 +8,7 @@ particlesJS("particles-js", {
         }
         },
         "color": {
-        "value": [ "#00FF00", "#1E8FFF", "#FF0000" ]
+        "value": [ "#EA3F33", "#328BF8", "#FDF6FB" ]
         },
         "shape": {
         "type": "circle"
@@ -30,5 +30,3 @@ particlesJS("particles-js", {
         }
     }
 });
-
-// requestAnimationFrame();

@@ -1,0 +1,95 @@
+@import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,400italic");
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
+@font-face {
+    font-family: titlefont;
+    src: url(../league-gothic-master/LeagueGothic-Regular.otf);
+}
+@font-face {
+    font-family: lightfont;
+    src: url(../Hallo-Sans/Hallosanslight.otf)
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+#particles-js {
+    z-index: 1;
+    height: 100%;
+    background-color:#33BEFF;
+}
+html {
+    z-index: -1;
+    position: relative;
+    min-height: 100%;
+}
+.event1 {
+    background: transparent;
+}
+.event-date {
+    font-family: titlefont;
+    padding-right: 25px;
+    margin-left: 35px;
+    font-size: 24px;
+    background: transparent;
+    float: left;
+}
+.event-location {
+    font-size: 20px;
+    font-family: titlefont;
+    padding-right: 50px;
+    background: transparent;
+    float: right;
+}
+p {
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-family: titlefont;
+    background: transparent;
+    z-index: -1;
+    display: inline
+}
+.event-header {
+    margin-left: 35px;
+    font-family: titlefont;
+    color: #000000;
+    margin-top: 90px;
+}
+.row.events {
+    margin-right: 80px;
+    margin-left: 80px;
+    padding-top: 20px;
+    border-top: 2px solid #000000;
+    z-index: 1;
+    position: relative;
+}
+canvas.particles-js-canvas-el {
+    position: absolute;
+    top: 0px;
+    z-index: 0;
+}
+@media screen and (max-width: 1024px) {
+    .event-header {
+        margin-left: 0px;
+    }
+    .row.events {
+        margin-right: 0px;
+        margin-left: 0px;
+        padding-top: 10px;
+    }
+    .event-date {
+        font-size: 20px;
+        margin-left: 0px;
+    }
+    .event-location {
+        font-size: 16px;
+        padding-right: 0px;
+    }
+    .event-title {
+        font-size: 16px;
+    }
+}
+/* 
+@media screen and (max-width: 1024px) {
+
+} */

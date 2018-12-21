@@ -1,4 +1,4 @@
-#footer {
+footer {
     width: 100%;
     /* color: #fff; */
     bottom: 0px;
@@ -27,7 +27,7 @@ a:link{
     font-size: 1.5rem;
     line-height: 1.5;
 }
-#footer li {
+footer li {
     color: #000000;
     width: 10px;
     margin: 0 auto;
@@ -35,7 +35,7 @@ a:link{
     text-align: center;
 }
 
-#footer .socials .fa {
+footer .socials .fa {
     font-size: 30px;
 }
 .fa:hover {
@@ -55,7 +55,7 @@ a:link{
         height: 100px;
     }
 
-    #footer .socials .fa {
+    footer .socials .fa {
         font-size: 25px;
     }
 }

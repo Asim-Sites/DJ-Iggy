@@ -1,3 +1,5 @@
+'use strict';
+const nodemailer = require('nodemailer');
 const express = require("express");
 const app = express();
 const path = require('path') // research the path native node module
@@ -5,7 +7,6 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser')
 const basicAuth = require('basic-auth');
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-
 
 const port = process.env.PORT || 3000
 app.set('views', path.join(__dirname, 'views'));
