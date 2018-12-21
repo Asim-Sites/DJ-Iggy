@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
-// const nodemailer = require('nodemailer');
-var mail = require("nodemailer").mail;
-// create reusable transporter object using the default SMTP transport
+const nodemailer = require('nodemailer');
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+// // create reusable transporter object using the default SMTP transport
 // let transporter = nodemailer.createTransport({
-//     host: 'smtp.gmail.com',
-//     port: 587,
-//     secure: false, // true for 465, false for other ports
+//     service: 'gmail', // true for 465, false for other ports
+//     auth: {
+//         user: process.env.USER_EMAIL, // generated ethereal user
+//         pass: process.env.USER_PASSWORD // generated ethereal password
+//     }
 // });
 // read into mongoose methods.
 router.get('/', (req,res) => {
@@ -52,17 +55,29 @@ router.post('/contact', (req,res) => {
     const phone = req.body.phone;
     const message = req.body.message;
 
-    mail({
-        from: `"${name} 👻" <${email}>`, // sender address
-        to: 'asimzaidih@gmail.com', // list of receivers
-        subject: `DJ Iggy Contact Form ✔`, // Subject line
-        text: message, // plain text body
-        html: `
-        <p>${message}</p>
-        <p><u>Contact Number: ${phone}</u></p>
-        ` // html body
-    });
-    // send mail with defined transport object
+    // using SendGrid's v3 Node.js Library
+    // https://github.com/sendgrid/sendgrid-nodejs
+    const msg = {
+    to: 'asimzaidih@gmail.com',
+    from: `"${name} 👻" <${email}>`,
+    subject: 'DJ Iggy Contact Form ✔',
+    text: message,
+    html: `<p>${message}</p>
+        <p><u>Contact Number: ${phone}</u></p>`,
+    };
+    sgMail.send(msg);
+
+    // let mailOptions = {
+    //     from: `"${name} 👻" <${email}>`, // sender address
+    //     to: 'asimzaidih@gmail.com', // list of receivers
+    //     subject: `DJ Iggy Contact Form ✔`, // Subject line
+    //     text: message, // plain text body
+    //     html: `
+    //     <p>${message}</p>
+    //     <p><u>Contact Number: ${phone}</u></p>
+    //     ` // html body
+    // };
+    // // send mail with defined transport object
     // transporter.sendMail(mailOptions, (error, info) => {
     //     if (error) {
     //         return console.log(error);
@@ -75,7 +90,6 @@ router.post('/contact', (req,res) => {
     //     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
     // });
     res.redirect('/')
-
 });
 
 // SUBREDDIT
