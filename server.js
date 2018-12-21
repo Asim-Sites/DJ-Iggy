@@ -19,7 +19,7 @@ app.engine('hbs', exphbs({
 }));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
-require('./data/djiggy-db');
+// require('./data/djiggy-db');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
