@@ -1,27 +1,69 @@
-<h1>Admin Dashboard</h1>
+<h1 class="admin-title">Admin Dashboard</h1>
 
-<section class="your-events">
-    <ul class="list">
-        {{#each events}}
-            <li class="list-item">{{this.date}}</li>
-            <ul>{{this.title}}</ul>
-            <ul>{{this.location}}</ul>
+<div class="container-fluid">
+    <h1 class="event-header">Your Listed Events</h1>
+    {{#each events}}
+    <div class="events row">
+        <div class="col-sm-12">
+            <p class="event-date">{{this.date}}</p>
+            <p class="event-title">{{this.location}}</p>
+            <p class="event-location">{{this.location}}</p>
             <form action="/auth/{{this._id}}?_method=DELETE" method="POST">
-                <button type="submit" class="btn btn-danger">Delete Post</button>
+                <button class = "btn-danger"type = "submit">Delete</button>    
+                {{!-- <input type="submit"><p class="delete-event-btn" type="submit"><strong>DELETE EVENT</strong></p> --}}
             </form>
-        {{/each}}  
-    </ul>
-    <form action="/auth/event" method="post">
-    <legend>Add a new Event</legend>
-    <label for="date">Date</label>
-    <input type="date" name="date" placeholder="Date">
-    <label for="title">Title</label>
-    <input type="text" name="title" placeholder="Event Title">
-    <label for="location">Location</label>
-    <input type="text" name="location" placeholder="City, State">
-    <button type="submit">Submit</button>
+        </div>
+    </div>
+    {{/each}}
+
+    <form class=class="form-group" action="/auth/event" method="post">
+        <legend>Add a new Event</legend>
+        <label for="date">Date</label>
+        <input type="text" name="date" placeholder="JAN 01">
+        <label for="title">Title</label>
+        <input type="text" name="title" placeholder="Event Title">
+        <label for="location">Location</label>
+        <input type="text" name="location" placeholder="City, State">
+        <button class="btn btn-primary" type="submit">Submit</button>
     </form>
-</section>
-{{!-- view events --}}
-{{!-- add events --}}
-{{!-- delete events --}}
+    
+
+    <button class="logout-btn btn btn-primary" ><a class="logout-btn-link" href="/logout" title="logout">Logout</a></button>
+</div>
+
+<link rel="stylesheet" href="/stylesheets/events.css">
+<style>
+    #particles-js {
+        background-color: rgb(229, 74, 74);
+        z-index: -1;
+    }
+    .admin-title {
+        font-family: titlefont;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .delete-event-btn {
+        background-color: white;
+        padding: 3px 5px;
+        cursor: pointer;
+    }
+    .delete-event-btn:hover {
+        background-color: red;
+    }
+    .events.row:hover {
+        background-color: rgba(255, 0, 0, 0.728);
+    }
+    .logout-btn {
+            display: block;
+            margin: 20px auto;
+    }
+    .logout-btn-link {
+        color: white;
+    }
+    footer {
+        position: unset;
+    }
+</style>
+
+<script src="/js/events-particle.js"></script>

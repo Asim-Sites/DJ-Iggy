@@ -28,7 +28,7 @@
     "handlebars-intl": "^1.1.2",
     "hbs": "~4.0.1",
     "method-override": "^3.0.0",
-    "mongoose": "^5.3.9",
+    "mongoose": "^5.4.1",
     "nodemailer": "^4.7.0",
     "particlesjs": "^2.2.3",
     "xmlhttprequest": "^1.8.0"

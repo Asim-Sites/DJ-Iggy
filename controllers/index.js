@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const nodemailer = require('nodemailer');
 const sgMail = require('@sendgrid/mail');
+const Event = require('../models/event');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 // // create reusable transporter object using the default SMTP transport
 // let transporter = nodemailer.createTransport({
@@ -41,7 +41,10 @@ router.get('/photos', (req,res) => {
 });
 
 router.get('/events', (req,res) => {
-    res.render("events");
+    Event.find().then((events) => {
+        res.render("events", {events} );
+
+    })
 });
 
 router.get('/contact', (req,res) => {
@@ -58,7 +61,7 @@ router.post('/contact', (req,res) => {
     // using SendGrid's v3 Node.js Library
     // https://github.com/sendgrid/sendgrid-nodejs
     const msg = {
-    to: 'djiggster@gmail.com',
+    to: 'asimzaidih@gmail.com',
     from: `"${name} 👻" <${email}>`,
     subject: 'DJ Iggy Contact Form ✔',
     text: message,
@@ -66,30 +69,10 @@ router.post('/contact', (req,res) => {
         <p><u>Contact Number: ${phone}</u></p>`,
     };
     sgMail.send(msg);
-
-    // let mailOptions = {
-    //     from: `"${name} 👻" <${email}>`, // sender address
-    //     to: 'asimzaidih@gmail.com', // list of receivers
-    //     subject: `DJ Iggy Contact Form ✔`, // Subject line
-    //     text: message, // plain text body
-    //     html: `
-    //     <p>${message}</p>
-    //     <p><u>Contact Number: ${phone}</u></p>
-    //     ` // html body
-    // };
-    // // send mail with defined transport object
-    // transporter.sendMail(mailOptions, (error, info) => {
-    //     if (error) {
-    //         return console.log(error);
-    //     }
-    //     console.log('Message sent: %s', info.messageId);
-    //     // Preview only available when sending through an Ethereal account
-    //     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-
-    //     // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-    //     // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-    // });
-    res.redirect('/')
+    console.log("sent msg: ", msg);
+    
+    successMsg = "Thanks for contacting DJ Iggy. I'll get back to you soon!"
+    res.render('contact', {successMsg})
 });
 
 // SUBREDDIT

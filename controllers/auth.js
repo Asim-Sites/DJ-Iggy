@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const nodemailer = require('nodemailer');
 const basicAuth = require('basic-auth');
 const Event = require('../models/event');
 
@@ -12,6 +11,7 @@ var auth = function (req, res, next) {
       return;
     }
     if (user.name === 'djiggy' && user.pass === 'Test123') {
+        adminUser = true
       next();
     } else {
       res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
@@ -19,6 +19,11 @@ var auth = function (req, res, next) {
       return;
     }
 }
+
+router.get('/logout', function (req, res) {
+    res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+    return res.sendStatus(401);
+});
 
 router.get("/auth", auth, function (req, res) {
     Event.find().then((events) => {
@@ -34,8 +39,8 @@ router.post("/auth/event", auth, function (req, res) {
     res.redirect("/auth");
 });
 
-router.delete('/auth/:id', auth, function(req, res) {
-    console.log("yo");
+router.delete('/auth/:eventId', auth, (req, res) => {
+    console.log("in delete function");
     Event.findOneAndDelete({_id: req.params.eventId}).then(() => {
         res.redirect('/auth');
     });

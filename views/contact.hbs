@@ -63,6 +63,9 @@
                 </div>
 
             </form>
+            {{#if successMsg}}
+            <h3 class="msg-success-msg">{{successMsg}}</h3>
+            {{/if}}
 
         </div><!-- /.8 -->
 
@@ -75,6 +78,9 @@
     }
     .row {
         justify-content: center;
+    }
+    .msg-success-msg {
+        font-family: titlefont;
     }
 </style>
 <link rel="stylesheet" href="/stylesheets/contact.css">

@@ -19,6 +19,12 @@
         <li class="nav-item active">
         <a class="nav-link" href="/contact">Contact</a>
         </li>
+        <h1>{{adminUser}}</h1>
+        {{#if adminUser}}
+        <li class="nav-item active">
+            <a href="/logout" title="logout">Logout</a>
+        </li>
+        {{/if}}
     </ul>
     </div>
 </nav>
