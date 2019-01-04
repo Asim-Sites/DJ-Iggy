@@ -42,7 +42,10 @@ router.get('/photos', (req,res) => {
 
 router.get('/events', (req,res) => {
     Event.find().then((events) => {
-        res.render("events", {events} );
+        if (events.length > 4) {
+            eventsTooLong = true
+        }
+        res.render("events", {events, eventsTooLong} );
 
     })
 });
