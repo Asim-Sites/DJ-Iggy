@@ -6,7 +6,7 @@
     <div class="events row">
         <div class="col-sm-12">
             <p class="event-date">{{this.date}}</p>
-            <p class="event-title">{{this.location}}</p>
+            <p class="event-title">{{this.title}}</p>
             <p class="event-location">{{this.location}}</p>
             <form action="/auth/{{this._id}}?_method=DELETE" method="POST">
                 <button class = "btn-danger"type = "submit">Delete</button>    
