@@ -18,12 +18,18 @@
 
     <form class=class="form-group" action="/auth/event" method="post">
         <legend>Add a new Event</legend>
-        <label for="date">Date</label>
-        <input type="text" name="date" placeholder="JAN 01">
-        <label for="title">Title</label>
-        <input type="text" name="title" placeholder="Event Title">
-        <label for="location">Location</label>
-        <input type="text" name="location" placeholder="City, State">
+        <div class="form-group">
+            <label for="date">Date</label>
+            <input class="form-control" type="text" name="date" placeholder="JAN 01">
+        </div>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input class="form-control" type="text" name="title" placeholder="Event Title">    
+        </div>
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input class="form-control"type="text" name="location" placeholder="City, State">
+        </div>
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>
     
@@ -63,6 +69,9 @@
     }
     footer {
         position: unset;
+    }
+    input {
+        max-width: 300px;
     }
 </style>
 
