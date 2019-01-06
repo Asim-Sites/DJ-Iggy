@@ -43,7 +43,9 @@ router.get('/photos', (req,res) => {
 router.get('/events', (req,res) => {
     Event.find().then((events) => {
         if (events.length > 4) {
-            eventsTooLong = true
+            eventsTooLong = true;
+        } else {
+            eventsTooLong = false;
         }
         res.render("events", {events, eventsTooLong} );
     }).catch(err => {
