@@ -1,45 +1,58 @@
 @font-face {
   font-family: titlefont;
-  src: url(../league-gothic-master/LeagueGothic-Regular.otf); }
+  src: url(../league-gothic-master/LeagueGothic-Regular.otf);
+}
 header {
-  font-family: titlefont; }
+  font-family: titlefont;
+}
 
 #particles-js {
   position: absolute;
   z-index: -1;
   height: 100%;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.466); }
+  background-color: rgba(255, 255, 255, 0.466);
+}
 
 main .home {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+}
+main .home img.homelogo {
+  margin-top: 140px;
+  z-index: 1;
+  max-width: 440px;
+}
+main .home .fab {
+  font-size: 60px;
+  color: #000000;
+  margin-top: 20px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+main .home .fab:hover {
+  color: #DCDCDC;
+}
+main .home .home-link {
+  color: #000000;
+  font-size: 40px;
+  font-family: titlefont;
+}
+@media screen and (max-width: 1024px) {
+  main .home {
+    /* Specific to this particular image */
+  }
   main .home img.homelogo {
-    margin-top: 140px;
-    z-index: 1;
-    max-width: 440px; }
-  main .home .fab {
-    font-size: 60px;
-    color: #000000;
-    margin-top: 20px;
-    margin-right: 5px;
-    margin-left: 5px; }
-  main .home .fab:hover {
-    color: #DCDCDC; }
+    max-width: 265px;
+  }
   main .home .home-link {
-    color: #000000;
-    font-size: 40px;
-    font-family: titlefont; }
-  @media screen and (max-width: 1024px) {
-    main .home {
-      /* Specific to this particular image */ }
-      main .home img.homelogo {
-        max-width: 265px; }
-      main .home .home-link {
-        font-size: 32px; }
-      main .home .fab {
-        font-size: 45px; } }
+    font-size: 32px;
+  }
+  main .home .fab {
+    font-size: 45px;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */

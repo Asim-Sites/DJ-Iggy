@@ -46,8 +46,9 @@ router.get('/events', (req,res) => {
             eventsTooLong = true
         }
         res.render("events", {events, eventsTooLong} );
-
-    })
+    }).catch(err => {
+        console.log(err);
+    });
 });
 
 router.get('/contact', (req,res) => {
